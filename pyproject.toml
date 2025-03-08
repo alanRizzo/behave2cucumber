@@ -1,0 +1,20 @@
+[project]
+name = "cucumberify"
+version = "0.1.0"
+description = "A tool to convert Behave tests into Cucumber format."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["click>=8.1.8"]
+keywords = ["setuptools", "development", "cucumber", "behave", "json"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Testing",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3.5"]
