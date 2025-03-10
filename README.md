@@ -11,6 +11,13 @@ For easy installation, use the following command:
 pip install behave2cucumber
 ```
 
+## Running
+Run these command to get some help:
+
+```bash
+behave2cucumber --help
+```
+
 ## Development
 The build.sh script is used to automate common development tasks.
 

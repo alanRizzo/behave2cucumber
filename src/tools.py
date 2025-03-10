@@ -3,8 +3,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from src.constants import NAME, VERSION
-from src.parser import convert
+from constants import NAME, VERSION
+from converter import convert
 
 
 def process_file(

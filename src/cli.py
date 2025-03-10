@@ -6,9 +6,9 @@ from pprint import pprint
 
 import click
 
-from src.constants import NAME, VERSION
-from src.logger import setup_logging
-from src.tools import process_file
+from constants import NAME, VERSION
+from logger import setup_logging
+from tools import process_file
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})

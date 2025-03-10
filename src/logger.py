@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-from src.constants import NAME
+from constants import NAME
 
 
 def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logging.Logger:
