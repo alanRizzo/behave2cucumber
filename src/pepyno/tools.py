@@ -86,6 +86,6 @@ def get_project_name():
 
 
 def _get_project_config():
-    pyproject_path = Path(__file__).parent / "pyproject.toml"
+    pyproject_path = Path(__file__).parent.parent.parent / "pyproject.toml"
     with pyproject_path.open("rb") as f:
         return tomllib.load(f)
