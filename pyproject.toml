@@ -21,8 +21,10 @@ dev = ["pre-commit>=4.1.0", "pylint>=3.3.5", "pytest>=8.3.5"]
 [tool.ruff]
 line-length = 100
 
+[tool.pylint.master]
+ignore-paths = ["tests/"]
+
 [tool.pylint.'MESSAGES CONTROL']
-ignore = ["tests"]
 disable = [
   "C0114",
   "C0115",

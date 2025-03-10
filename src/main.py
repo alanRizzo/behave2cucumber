@@ -71,7 +71,6 @@ def main(
 
     try:
         result = process_file(
-            log,
             infile,
             outfile,
             remove_background,

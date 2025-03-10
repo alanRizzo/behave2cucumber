@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from evv_link_test_tools import assert_deep_equal
 
 import pytest
 
@@ -16,34 +15,34 @@ AUTORETRY_DEDUPE_JSON = FIXTURES_DIR / "autoretry_dedupe.json"
 
 def test_convert():
     """Test basic conversion functionality."""
-    with open(BEHAVE_JSON) as f:
+    with open(BEHAVE_JSON, encoding="utf-8") as f:
         converted = convert(json.load(f))
-    with open(EXPECTED_JSON) as f:
+    with open(EXPECTED_JSON, encoding="utf-8") as f:
         expected_result = json.load(f)
-    assert_deep_equal(sorted(converted), sorted(expected_result))
+    assert sorted(converted) == sorted(expected_result)
 
 
 def test_autoretry_convert():
     """Test conversion with auto-retry features."""
-    with open(AUTORETRY_BEHAVE_JSON) as f:
+    with open(AUTORETRY_BEHAVE_JSON, encoding="utf-8") as f:
         converted = convert(json.load(f))
-    with open(AUTORETRY_EXPECTED_JSON) as f:
+    with open(AUTORETRY_EXPECTED_JSON, encoding="utf-8") as f:
         expected_result = json.load(f)
-    assert_deep_equal(sorted(converted), sorted(expected_result))
+    assert sorted(converted) == sorted(expected_result)
 
 
 def test_dedupe_convert():
     """Test conversion with deduplication enabled."""
-    with open(AUTORETRY_BEHAVE_JSON) as f:
+    with open(AUTORETRY_BEHAVE_JSON, encoding="utf-8") as f:
         converted = convert(json.load(f), deduplicate=True)
-    with open(AUTORETRY_DEDUPE_JSON) as f:
+    with open(AUTORETRY_DEDUPE_JSON, encoding="utf-8") as f:
         expected_result = json.load(f)
-    assert_deep_equal(sorted(converted), sorted(expected_result))
+    assert sorted(converted) == sorted(expected_result)
 
 
 def test_ids_are_unique():
     """Test that all IDs in the converted output are unique."""
-    with open(BEHAVE_JSON) as f:
+    with open(BEHAVE_JSON, encoding="utf-8") as f:
         converted = convert(json.load(f))
         ids = []
         for feature in converted:
@@ -56,14 +55,14 @@ def test_ids_are_unique():
 @pytest.fixture
 def behave_json():
     """Fixture that provides the behave JSON data."""
-    with open(BEHAVE_JSON) as f:
+    with open(BEHAVE_JSON, encoding="utf8") as f:
         return json.load(f)
 
 
 @pytest.fixture
 def autoretry_json():
     """Fixture that provides the autoretry JSON data."""
-    with open(AUTORETRY_BEHAVE_JSON) as f:
+    with open(AUTORETRY_BEHAVE_JSON, encoding="utf-8") as f:
         return json.load(f)
 
 
