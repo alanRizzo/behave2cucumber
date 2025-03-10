@@ -35,6 +35,7 @@ disable = [
   "R0913",
   "R0917",
 ]
+ignore = "tests"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.3.5"
