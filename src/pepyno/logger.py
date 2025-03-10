@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-from pepyno.constants import NAME
+from pepyno.tools import get_project_name
 
 
 def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logging.Logger:
@@ -22,7 +22,7 @@ def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logg
     )
     short_formatter = logging.Formatter("[%(levelname)-8.8s]  %(message)s")
 
-    log = logging.getLogger(NAME)
+    log = logging.getLogger(get_project_name())
     log.setLevel(log_level)
 
     # Clear existing handlers if any
@@ -30,7 +30,7 @@ def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logg
         log.handlers.clear()
 
     # File handler
-    file_path = log_path / f"{NAME}.log"
+    file_path = log_path / f"{get_project_name()}.log"
     file_handler = logging.FileHandler(file_path)
     file_handler.setFormatter(log_formatter)
     log.addHandler(file_handler)

@@ -3,7 +3,9 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from pepyno.constants import NAME, VERSION
+import tomllib
+
+
 from pepyno.converter import convert
 
 
@@ -51,7 +53,7 @@ def process_file(
         # Add metadata to the output
         if isinstance(cucumber_output, list) and cucumber_output:
             metadata = {
-                "generated_by": f"{NAME} v{VERSION}",
+                "generated_by": f"{get_project_name()} v{get_project_version()}",
                 "timestamp": datetime.now().isoformat(),
                 "source_file": str(infile),
             }
@@ -71,3 +73,19 @@ def process_file(
     except Exception as e:
         log.exception(f"Error processing file: {str(e)}")
         raise
+
+
+def get_project_version():
+    config = _get_project_config()
+    return config["project"]["version"]
+
+
+def get_project_name():
+    config = _get_project_config()
+    return config["project"]["name"]
+
+
+def _get_project_config():
+    pyproject_path = Path(__file__).parent / "pyproject.toml"
+    with pyproject_path.open("rb") as f:
+        return tomllib.load(f)
