@@ -1,5 +1,5 @@
-# behave2cucumber
-behave2cucumber is a powerful tool designed to resolve the incompatibility between Behave's generated JSON reports and tools that require Cucumber JSON reports. It efficiently reformats Behave JSON into a Cucumber-compatible format.
+# Pypino 🥒
+Pypino is a powerful tool designed to resolve the incompatibility between Behave's generated JSON reports and tools that require Cucumber JSON reports. It efficiently reformats Behave JSON into a Cucumber-compatible format.
 
 This modified version has been adapted for improved compatibility with modern Python versions and includes enhancements for easier integration and usability. The original script was developed by Behalf Inc.'s automation team and was tested on Python 2.7. This version has been updated to support Python 3.x.
 
@@ -8,14 +8,14 @@ This modified version has been adapted for improved compatibility with modern Py
 For easy installation, use the following command:
 
 ```bash
-pip install behave2cucumber
+pip install pypino
 ```
 
 ## Running
 Run these command to get some help:
 
 ```bash
-behave2cucumber --help
+pypino --help
 ```
 
 ## Development

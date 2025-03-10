@@ -1,5 +1,5 @@
 [project]
-name = "behave2cucumber"
+name = "pypino"
 version = "0.1.0"
 description = "A tool to convert Behave tests into Cucumber format."
 readme = "README.md"
@@ -15,11 +15,14 @@ classifiers = [
   "Topic :: Software Development :: Testing",
 ]
 
+[tool.uv]
+package = true
+
 [dependency-groups]
 dev = ["pre-commit>=4.1.0", "pylint>=3.3.5", "pytest>=8.3.5"]
 
 [project.scripts]
-behave2cucumber = "cli:main"
+pypino = "pypino.cli:main"
 
 [tool.ruff]
 line-length = 100

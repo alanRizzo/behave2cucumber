@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from src.converter import convert
+from src.pypino.converter import convert
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 BEHAVE_JSON = FIXTURES_DIR / "behave.json"
