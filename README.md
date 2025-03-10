@@ -15,7 +15,7 @@ pip install pepyno
 Run these command to get some help:
 
 ```bash
-cucumby --help
+pepyno --help
 ```
 
 ## Development
