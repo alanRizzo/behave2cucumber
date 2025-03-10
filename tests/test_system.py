@@ -4,7 +4,7 @@ from evv_link_test_tools import assert_deep_equal
 
 import pytest
 
-from cucumberify.parser import convert
+from src.parser import convert
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 BEHAVE_JSON = FIXTURES_DIR / "behave.json"

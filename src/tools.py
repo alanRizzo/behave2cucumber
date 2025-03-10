@@ -4,7 +4,7 @@ from datetime import datetime
 from parser import convert
 from pathlib import Path
 
-from constants import NAME, VERSION
+from src.constants import NAME, VERSION
 
 
 def process_file(
