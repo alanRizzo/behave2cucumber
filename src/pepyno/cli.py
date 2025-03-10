@@ -6,9 +6,9 @@ from pprint import pprint
 
 import click
 
-from pypino.constants import NAME, VERSION
-from pypino.logger import setup_logging
-from pypino.tools import process_file
+from pepyno.constants import NAME, VERSION
+from pepyno.logger import setup_logging
+from pepyno.tools import process_file
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})

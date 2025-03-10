@@ -3,8 +3,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from pypino.constants import NAME, VERSION
-from pypino.converter import convert
+from pepyno.constants import NAME, VERSION
+from pepyno.converter import convert
 
 
 def process_file(

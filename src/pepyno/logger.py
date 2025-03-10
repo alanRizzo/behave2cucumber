@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-from pypino.constants import NAME
+from pepyno.constants import NAME
 
 
 def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logging.Logger:

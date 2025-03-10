@@ -127,6 +127,31 @@ wheels = [
 ]
 
 [[package]]
+name = "pepyno"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "click" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pre-commit" },
+    { name = "pylint" },
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "click", specifier = ">=8.1.8" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pre-commit", specifier = ">=4.1.0" },
+    { name = "pylint", specifier = ">=3.3.5" },
+    { name = "pytest", specifier = ">=8.3.5" },
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.3.6"
 source = { registry = "https://pypi.org/simple" }
@@ -176,31 +201,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d5/e7/3616e8caa61f918c4864db075800a6bd7422621618045c188fd45c3f7a2b/pylint-3.3.5.tar.gz", hash = "sha256:38d0f784644ed493d91f76b5333a0e370a1c1bc97c22068a77523b4bf1e82c31", size = 1519168 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/99/62/42199570fc199cc0f6825d746ddb0183b30739b334dc6d85edeaa8a2073c/pylint-3.3.5-py3-none-any.whl", hash = "sha256:7cb170929a371238530b2eeea09f5f28236d106b70308c3d46a9c0cf11634633", size = 522215 },
-]
-
-[[package]]
-name = "pypino"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "click" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pre-commit" },
-    { name = "pylint" },
-    { name = "pytest" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "click", specifier = ">=8.1.8" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pre-commit", specifier = ">=4.1.0" },
-    { name = "pylint", specifier = ">=3.3.5" },
-    { name = "pytest", specifier = ">=8.3.5" },
 ]
 
 [[package]]
