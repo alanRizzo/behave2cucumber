@@ -11,19 +11,14 @@ For easy installation, use the following command:
 pip install behave2cucumber
 ```
 
-## Running from Bash
-Run the following command:
+## Development
+The build.sh script is used to automate common development tasks.
 
 ```bash
-python -m behave2cucumber
+./build.sh
 ```
+This will set up your development environment and check the status of your code.
 
-## Running Tests
-To run tests, use the following command:
-
-```bash
-./test_script
-```
 
 ## License
 This project is licensed under the MIT License. The original software was created by Behalf Inc. and is provided "as is," without warranty of any kind. This modified version retains the original MIT License and attribution.
