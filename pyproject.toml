@@ -1,12 +1,11 @@
 [project]
-name = "cucumberify"
+name = "behave2cucumber"
 version = "0.1.0"
 description = "A tool to convert Behave tests into Cucumber format."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["click>=8.1.8"]
 keywords = ["setuptools", "development", "cucumber", "behave", "json"]
-
 classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
@@ -17,7 +16,7 @@ classifiers = [
 ]
 
 [dependency-groups]
-dev = ["pre-commit>=4.1.0", "pytest>=8.3.5"]
+dev = ["pre-commit>=4.1.0", "pylint>=3.3.5", "pytest>=8.3.5"]
 
 [tool.ruff]
 line-length = 100
@@ -36,6 +35,3 @@ disable = [
   "R0917",
 ]
 ignore = "tests"
-
-[tool.poetry.group.dev.dependencies]
-pylint = "^3.3.5"
