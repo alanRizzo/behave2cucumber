@@ -1,10 +1,10 @@
 import json
 import time
 from datetime import datetime
-from parser import convert
 from pathlib import Path
 
 from src.constants import NAME, VERSION
+from src.parser import convert
 
 
 def process_file(

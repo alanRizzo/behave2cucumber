@@ -66,8 +66,8 @@ def main(
     log_level = 60 - (debug * 10)
     log = setup_logging(log_level, log_dir)
 
-    log.info(f"Log level set to: {logging.getLevelName(log_level)}")
-    log.debug(f"Arguments received: {locals()}")
+    log.info("Log level set to: %s", logging.getLevelName(log_level))
+    log.debug("Arguments received: %s", locals())
 
     try:
         result = process_file(
@@ -90,7 +90,7 @@ def main(
         log.warning("Operation interrupted by user")
         sys.exit(130)
     except Exception as e:
-        log.critical(f"Unhandled error: {e}", exc_info=True)
+        log.critical("Unhandled error: %s", e, exc_info=True)
         sys.exit(1)
 
 
