@@ -1,2 +1,23 @@
-*.pyc
-*.swp
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg
+
+# MyPy
+.mypy_cache/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Virtual Environment
+.venv/
+
+# pyenv
+.python-version
