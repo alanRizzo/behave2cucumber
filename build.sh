@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 COLOR_RESET="\033[0m"
 COLOR_INFO="\033[1;34m"
 COLOR_SUCCESS="\033[1;32m"
@@ -18,15 +20,15 @@ fail_message() {
 }
 
 info_message "Cleaning up previous build artifacts"
-find . -type d -name "__pycache__" -exec rm -r {} +
-rm -rf build src/*.egg-info
+find . -type d -name "__pycache__" -exec rm -r {} + || true
+rm -rf build src/*.egg-info || true
 
 info_message "Installing dependencies"
-uv sync
+uv sync || fail_message "Dependency installation failed"
 
 if ! command -v pre-commit &>/dev/null; then
   info_message "Installing pre-commit"
-  pre-commit install
+  pre-commit install || fail_message "Failed to install pre-commit"
 else
   info_message "pre-commit is already installed"
 fi
@@ -34,6 +36,12 @@ fi
 info_message "Running Unit Tests"
 if ! pytest; then
   fail_message "One or more unit tests failed"
+  exit 1
+fi
+
+info_message "Building package"
+if ! uv build --verbose; then
+  fail_message "Build process failed"
   exit 1
 fi
 
