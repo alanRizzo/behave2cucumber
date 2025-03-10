@@ -12,7 +12,7 @@ from pypino.tools import process_file
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})
-@click.version_option(version=f"{NAME} v{VERSION} 🥒")
+@click.version_option(version=f"v{VERSION} 🥒", package_name=NAME)
 @click.option(
     "--debug",
     "-d",
