@@ -38,9 +38,7 @@ from tools import process_file
     is_flag=True,
     help="Remove background steps from output",
 )
-@click.option(
-    "--format-duration", "-f", is_flag=True, help="Format the duration values"
-)
+@click.option("--format-duration", "-f", is_flag=True, help="Format the duration values")
 @click.option(
     "--deduplicate",
     "-D",

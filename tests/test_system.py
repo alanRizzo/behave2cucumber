@@ -1,7 +1,9 @@
 import json
 from pathlib import Path
+from evv_link_test_tools import assert_deep_equal
 
 import pytest
+
 from cucumberify.parser import convert
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
@@ -18,7 +20,7 @@ def test_convert():
         converted = convert(json.load(f))
     with open(EXPECTED_JSON) as f:
         expected_result = json.load(f)
-    assert sorted(converted) == sorted(expected_result)
+    assert_deep_equal(sorted(converted), sorted(expected_result))
 
 
 def test_autoretry_convert():
@@ -27,7 +29,7 @@ def test_autoretry_convert():
         converted = convert(json.load(f))
     with open(AUTORETRY_EXPECTED_JSON) as f:
         expected_result = json.load(f)
-    assert sorted(converted) == sorted(expected_result)
+    assert_deep_equal(sorted(converted), sorted(expected_result))
 
 
 def test_dedupe_convert():
@@ -36,7 +38,7 @@ def test_dedupe_convert():
         converted = convert(json.load(f), deduplicate=True)
     with open(AUTORETRY_DEDUPE_JSON) as f:
         expected_result = json.load(f)
-    assert sorted(converted) == sorted(expected_result)
+    assert_deep_equal(sorted(converted), sorted(expected_result))
 
 
 def test_ids_are_unique():

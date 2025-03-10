@@ -1,6 +1,0 @@
-click>=8.1.8
-
-[dev]
-pytest>=6.2
-flake8>=4.0
-black>=22.0

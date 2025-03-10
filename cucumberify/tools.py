@@ -32,13 +32,11 @@ def process_file(
     log.info(f"Processing file: {infile}")
 
     try:
-        with open(infile, "r", encoding="utf-8") as f:
+        with open(infile, encoding="utf-8") as f:
             try:
                 input_data = json.load(f)
             except json.JSONDecodeError as e:
-                raise json.JSONDecodeError(
-                    f"Invalid JSON in {infile}: {str(e)}", e.doc, e.pos
-                )
+                raise json.JSONDecodeError(f"Invalid JSON in {infile}: {str(e)}", e.doc, e.pos)
 
         # Process the data
         start_time = time.time()

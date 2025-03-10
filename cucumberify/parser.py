@@ -4,9 +4,7 @@ JSON_NODES = ["feature", "elements", "steps"]
 FIELDS_TO_REMOVE = ["status", "step_type"]
 
 
-def convert(
-    json_file, remove_background=False, duration_format=False, deduplicate=False
-) -> list:
+def convert(json_file, remove_background=False, duration_format=False, deduplicate=False) -> list:
     def format_level(tree, index=0, id_counter=itertools.count()):
         for item in tree:
             uri, line_number = item.pop("location").split(":")
@@ -16,8 +14,7 @@ def convert(
 
             if "tags" in item:
                 item["tags"] = [
-                    {"name": f"@{tag.lstrip('@')}", "line": item["line"] - 1}
-                    for tag in item["tags"]
+                    {"name": f"{tag}", "line": item["line"] - 1} for tag in item["tags"]
                 ]
 
             if JSON_NODES[index] == "steps":
@@ -25,9 +22,7 @@ def convert(
                 result = item.get("result", {})
                 if "error_message" in result:
                     result["error_message"] = (
-                        str(result.pop("error_message"))
-                        .replace('"', "")
-                        .replace("\\'", "")[:2000]
+                        str(result.pop("error_message")).replace('"', "").replace("\\'", "")[:2000]
                     )
                 if "duration" in result and duration_format:
                     result["duration"] = int(result["duration"] * 1_000_000_000)

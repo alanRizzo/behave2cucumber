@@ -17,4 +17,24 @@ classifiers = [
 ]
 
 [dependency-groups]
-dev = ["pytest>=8.3.5"]
+dev = ["pre-commit>=4.1.0", "pytest>=8.3.5"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+  "C0114",
+  "C0115",
+  "C0116",
+  "C0411",
+  "R0903",
+  "W0511",
+  "W0718",
+  "E1120",
+  "R0913",
+  "R0917",
+]
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.5"

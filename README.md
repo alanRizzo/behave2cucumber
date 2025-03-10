@@ -29,4 +29,3 @@ To run tests, use the following command:
 This project is licensed under the MIT License. The original software was created by Behalf Inc. and is provided "as is," without warranty of any kind. This modified version retains the original MIT License and attribution.
 
 For more details, see the included `LICENSE` file.
-
