@@ -29,12 +29,10 @@ def convert(json_file, remove_background=False, duration_format=False, deduplica
                 item.pop(field, None)  # Using pop with default to avoid KeyError
 
             if "tags" in item:
-                print(f"Before: {item['tags']}")
                 item["tags"] = [
                     {"name": "@" + tag if tag.startswith("auto") else tag, "line": item["line"] - 1}
                     for tag in item["tags"]
                 ]
-                print(f"After: {item['tags']}")
 
             if json_nodes[index] == "steps":
                 if "result" in item:
