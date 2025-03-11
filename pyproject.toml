@@ -21,9 +21,10 @@ package = true
 [dependency-groups]
 dev = [
     "pre-commit>=4.1.0",
- "pylint>=3.3.5",
- "pytest>=8.3.5",
- "pytest-mock>=3.14.0",
+    "pylint>=3.3.5",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
 ]
 
 [project.scripts]
