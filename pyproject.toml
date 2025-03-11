@@ -19,7 +19,12 @@ classifiers = [
 package = true
 
 [dependency-groups]
-dev = ["pre-commit>=4.1.0", "pylint>=3.3.5", "pytest>=8.3.5"]
+dev = [
+    "pre-commit>=4.1.0",
+ "pylint>=3.3.5",
+ "pytest>=8.3.5",
+ "pytest-mock>=3.14.0",
+]
 
 [project.scripts]
 pepyno = "pepyno.cli:main"
