@@ -15,7 +15,7 @@ def sample_input_file(tmp_path):
     content = [
         {
             "name": "Test Scenario",
-            "location": "features/test.feature:12",
+            "location": "features/test.feature:11",
             "steps": [{"step": "Given something happens"}],
         }
     ]
