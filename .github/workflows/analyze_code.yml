@@ -1,7 +1,9 @@
-name: Test code
+name: Test and Update Coverage
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,20 +21,33 @@ jobs:
           pyproject-file: "pyproject.toml"
 
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: |
+          uv sync --all-extras --dev
+          uv pip install pytest-github-actions-annotate-failures
 
       - name: Create junit results directory
         run: mkdir -p junit
-
-      - name: Install action
-        run: uv pip install pytest-github-actions-annotate-failures
 
       - name: Build coverage file
         run: |
           uv run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=src tests/ | tee pytest-coverage.txt
 
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
         with:
-          name: coverage-report
-          path: ./pytest-coverage.txt
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
+
+      - name: Update README with Coverage Report
+        run: |
+          if grep -q "<!-- Pytest Coverage Comment:Begin -->" README.md; then
+            sed -i '/<!-- Pytest Coverage Comment:Begin -->/,/<!-- Pytest Coverage Comment:End -->/c\<!-- Pytest Coverage Comment:Begin -->\n${{ steps.coverageComment.outputs.coverageHtml }}\n<!-- Pytest Coverage Comment:End -->' README.md
+          else
+            echo -e "\n<!-- Pytest Coverage Comment:Begin -->\n${{ steps.coverageComment.outputs.coverageHtml }}\n<!-- Pytest Coverage Comment:End -->" >> README.md
+          fi
+
+      - name: Commit & Push Changes to README
+        uses: actions-js/push@master
+        with:
+          message: "DOC: update coverage report in README"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
