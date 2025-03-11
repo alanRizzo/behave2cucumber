@@ -1,16 +1,15 @@
 import json
 import time
-from datetime import datetime
-from pathlib import Path
-
 import tomllib
-
+from datetime import datetime
+from logging import Logger
+from pathlib import Path
 
 from pepyno.converter import convert
 
 
 def process_file(
-    log,
+    log: Logger,
     infile: Path,
     outfile: Path | None = None,
     remove_background: bool = False,
@@ -21,6 +20,7 @@ def process_file(
     """Process the input file and generate Cucumber-compatible output.
 
     Args:
+        log: a Logger instance
         infile: Input JSON file path
         outfile: Output JSON file path (optional)
         remove_background: Whether to remove background steps

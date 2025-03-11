@@ -62,7 +62,7 @@ def main(
     pretty,
     log_dir,
 ):
-    log_level = 60 - (debug * 10)
+    log_level = 50 - (debug * 10)
     log = setup_logging(log_level, log_dir)
 
     log.info("Log level set to: %s", logging.getLevelName(log_level))
@@ -70,6 +70,7 @@ def main(
 
     try:
         result = process_file(
+            log,
             infile,
             outfile,
             remove_background,
