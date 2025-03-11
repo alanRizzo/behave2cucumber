@@ -1,6 +1,7 @@
-name: Test and static analyze
+name: Test code
 
-on: [push]
+on:
+  push:
 
 jobs:
   build:
@@ -23,15 +24,15 @@ jobs:
       - name: Create junit results directory
         run: mkdir -p junit
 
-      - name: Test with pytest
-        run: uv run pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+      - name: Install action
+        run: uv pip install pytest-github-actions-annotate-failures
 
-      - name: Install the code linting and formatting tool Ruff
-        run: uv pip install ruff
+      - name: Build coverage file
+        run: |
+          uv run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=src tests/ | tee pytest-coverage.txt
 
-      - name: Lint code with Ruff
-        run: uv run ruff check --output-format=github --target-version=py311
-
-      - name: Check code formatting with Ruff
-        run: uv run ruff format --diff --target-version=py311
-        continue-on-error: true
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
