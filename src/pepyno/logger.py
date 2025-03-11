@@ -25,7 +25,6 @@ def setup_logging(log_level: int = logging.WARNING, log_dir: str = "./") -> logg
     log = logging.getLogger(get_project_name())
     log.setLevel(log_level)
 
-    # Clear existing handlers if any
     if log.handlers:
         log.handlers.clear()
 
