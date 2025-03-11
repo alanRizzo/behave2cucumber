@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/runner/work/behave2cucumber/behave2cucumber
+configfile: pyproject.toml
+plugins: github-actions-annotate-failures-0.3.0, cov-6.0.0, mock-3.14.0
+collected 12 items
+
+tests/test_cli.py ......                                                 [ 50%]
+tests/test_system.py ......                                              [100%]
+
+- generated xml file: /home/runner/work/behave2cucumber/behave2cucumber/pytest.xml -
+
+---------- coverage: platform linux, python 3.11.11-final-0 ----------
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+src/pepyno/cli.py            37      2    95%   84, 97
+src/pepyno/converter.py      57     11    81%   50, 58-65, 82-84, 101
+src/pepyno/tools.py          42      5    88%   40-41, 73-75
+-------------------------------------------------------
+TOTAL                       156     18    88%
+
+2 files skipped due to complete coverage.
+
+============================== 12 passed in 0.14s ==============================
