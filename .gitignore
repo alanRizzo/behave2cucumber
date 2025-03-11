@@ -21,3 +21,6 @@ Desktop.ini
 
 # pyenv
 .python-version
+
+# logs
+*.log

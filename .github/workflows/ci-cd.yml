@@ -1,5 +1,10 @@
 name: Publish package
 
+on:
+  push:
+    tags:
+      - 'v*'
+
 jobs:
   build:
     name: Build distribution 📦
