@@ -24,7 +24,7 @@ jobs:
         run: mkdir -p junit
 
       - name: Test with pytest
-        run: pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        run: uv run pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
       - name: Install the code linting and formatting tool Ruff
         run: uv pip install ruff
