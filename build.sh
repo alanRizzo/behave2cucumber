@@ -21,7 +21,7 @@ fail_message() {
 
 info_message "Cleaning up previous build artifacts"
 find . -type d -name "__pycache__" -exec rm -r {} + || true
-rm -rf build src/*.egg-info || true
+rm -rf dist pepyno.log src/*.egg-info || true
 
 info_message "Installing dependencies"
 uv sync || fail_message "Dependency installation failed"
