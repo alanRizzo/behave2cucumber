@@ -40,7 +40,7 @@ if ! pytest; then
 fi
 
 info_message "Building package"
-if ! uv build --verbose; then
+if ! uv build --quiet; then
   fail_message "Build process failed"
   exit 1
 fi
