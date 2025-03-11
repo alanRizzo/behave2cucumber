@@ -1,6 +1,6 @@
 [project]
 name = "pepyno"
-version = "1.0.1"
+version = "1.0.2"
 description = "A tool to convert Behave tests into Cucumber format."
 readme = "README.md"
 requires-python = ">=3.11"
