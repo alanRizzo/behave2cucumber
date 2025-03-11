@@ -6,12 +6,13 @@ from pprint import pprint
 
 import click
 
+from pepyno.constants import NAME, VERSION
 from pepyno.logger import setup_logging
-from pepyno.tools import process_file, get_project_version, get_project_name
+from pepyno.tools import process_file
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})
-@click.version_option(version=f"v{get_project_version()} 🥒", package_name=get_project_name())
+@click.version_option(version=f"v{VERSION} 🥒", package_name=NAME)
 @click.option(
     "--debug",
     "-d",
