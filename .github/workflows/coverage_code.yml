@@ -23,12 +23,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+          path: .
+
       - name: Pytest Coverage Comment 🧾
         id: coverageComment
         uses: MishaKav/pytest-coverage-comment@main
         with:
           hide-comment: true
           pytest-coverage-path: ./pytest-coverage.txt
+
 
       - name: Update README with Coverage Report
         run: |
