@@ -8,7 +8,7 @@ if ! command -v twine &>/dev/null; then
   exit 1
 fi
 
-info_message "Current version: $(uv pip show twine | grep Version)"
+info_message "Twine current version: $(uv pip show twine | grep Version)"
 
 echo -n "Are you sure you want to upload the distribution? (y/N): "
 read -r CONFIRM
