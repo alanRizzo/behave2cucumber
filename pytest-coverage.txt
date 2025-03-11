@@ -13,12 +13,12 @@ tests/test_system.py ......                                              [100%]
 ---------- coverage: platform linux, python 3.11.11-final-0 ----------
 Name                      Stmts   Miss  Cover   Missing
 -------------------------------------------------------
-src/pepyno/cli.py            37      2    95%   84, 97
+src/pepyno/cli.py            38      2    95%   85, 98
 src/pepyno/converter.py      57     11    81%   50, 58-65, 82-84, 101
-src/pepyno/tools.py          42      5    88%   40-41, 73-75
+src/pepyno/tools.py          32      5    84%   40-41, 73-75
 -------------------------------------------------------
-TOTAL                       156     18    88%
+TOTAL                       150     18    88%
 
-2 files skipped due to complete coverage.
+3 files skipped due to complete coverage.
 
-============================== 12 passed in 0.14s ==============================
+============================== 12 passed in 0.12s ==============================
